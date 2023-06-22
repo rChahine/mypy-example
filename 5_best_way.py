@@ -1,11 +1,11 @@
 import json
 from pathlib import Path
-from typing import List, Literal, Tuple
+from typing import List, Literal, Tuple, Any, Mapping
 
 import pydantic
 
 
-def load_data():
+def load_data() -> Any:
     data = Path("./data.json")
     return json.loads(data.read_text())
 
@@ -18,7 +18,7 @@ class Geometry(pydantic.BaseModel):
 class Feature(pydantic.BaseModel):
     type: Literal["Feature"]
     geometry: Geometry
-    properties: dict
+    properties: Mapping[str, Any]
 
 
 class GeoJson:
@@ -35,13 +35,7 @@ class GeoJson:
 data = load_data()
 
 features = [  # type the incoming variable
-    Feature(
-        **{
-            "type": "Feature",
-            "geometry": {"type": "Polygon", "coordinates": [d]},
-            "properties": {},
-        }
-    )
+    Feature(type="Feature", geometry=Geometry(type="Polygon", coordinates=[d]), properties={})
     for d in data
 ]
 
