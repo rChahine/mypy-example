@@ -2,3 +2,4 @@
 .venv
 debug
 output.json
+.idea
