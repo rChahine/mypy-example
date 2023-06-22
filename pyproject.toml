@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "mypy-example"
+version = "0.1.0"
+description = ""
+authors = ["Romain Chahine", "Guillaume Boddaert"]
+readme = "README.md"
+packages = [{include = "mypy_example"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydantic = "^1.10.9"
+mypy = "^1.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
