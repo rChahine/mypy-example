@@ -1,5 +1,4 @@
 .mypy_cache
 .venv
-debug
 output.json
 .idea

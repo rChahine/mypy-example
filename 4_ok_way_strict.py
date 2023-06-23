@@ -4,7 +4,7 @@ from typing import Any, List, Literal, Tuple, TypedDict
 
 
 def load_data() -> Any:
-    data = Path("./data.json")
+    data = Path("data/data.json")
     return json.loads(data.read_text())
 
 

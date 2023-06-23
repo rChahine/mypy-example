@@ -3,7 +3,7 @@ import json
 
 
 def load_data():
-    data = Path("./data.json")
+    data = Path("data/data.json")
     return json.loads(data.read_text())
 
 

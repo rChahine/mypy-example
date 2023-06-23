@@ -6,7 +6,7 @@ import pydantic
 
 
 def load_data() -> Any:
-    data = Path("./data.json")
+    data = Path("data/data.json")
     return json.loads(data.read_text())
 
 
@@ -35,7 +35,11 @@ class GeoJson:
 data = load_data()
 
 features = [  # type the incoming variable
-    Feature(type="Feature", geometry=Geometry(type="Polygon", coordinates=[d]), properties={})
+    Feature(
+        type="Feature",
+        geometry=Geometry(type="Polygon", coordinates=[d]),
+        properties={},
+    )
     for d in data
 ]
 
